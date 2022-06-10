@@ -7,12 +7,11 @@ describe 'Usuario visita tela inicial' do
     visit('/')
     # Assert
     expect(page).to have_content('Galpões & Estoque')
-  end 
-
+  end
   it 'e vê os galpões cadastrados' do
     # Arrange
-    Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area:60_000)
-    Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', area:50_000)
+    Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000)
+    Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50_000)
 
     # Action
     visit('/')
@@ -28,12 +27,11 @@ describe 'Usuario visita tela inicial' do
     expect(page).to have_content('Cidade: Maceio')
     expect(page).to have_content('50000 m²')
   end
-  
   it 'e não existem galpões cadastrados' do
-  # Arrange
-  # Action
-  visit('/')
-  #Assert
-  expect(page).to have_content('Não existem galpões cadastrados')
+    # Arrange
+    # Action
+    visit('/')
+    # Assert
+    expect(page).to have_content('Não existem galpões cadastrados')
   end
 end
