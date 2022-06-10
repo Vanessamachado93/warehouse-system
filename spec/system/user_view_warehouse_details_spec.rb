@@ -9,10 +9,11 @@ describe 'Usuario vê detalhes de um galpão' do
                               area: '100_000',
                               address: 'Avenida do Aeroporto, 1000',
                               cep: '15000-000',
-                              description: 'Galpão destinado para cargas internacionais')
+                              description: 'Galpão destinado para cargas internacionais'
+                            )
     warehouse.save()
     # Action
-    visit('/')
+    visit root_path
     click_on 'Aeroporto SP'
     # Assert
     expect(page).to have_content 'Galpão GRU'
@@ -22,4 +23,22 @@ describe 'Usuario vê detalhes de um galpão' do
     expect(page).to have_content 'Endereço: Avenida do Aeroporto, 1000 cep:15000-000'
     expect(page).to have_content 'Galpão destinado para cargas internacionais'
   end
+  it 'e volta para a tela incial' do
+  # Arrange
+  warehouse = Warehouse.create(name: 'Aeroporto SP',
+                               code: 'GRU', 
+                               city: 'Guarulhos',
+                               area: '100_000',
+                               address: 'Avenida do Aeroporto, 1000',
+                               cep: '15000-000',
+                              description: 'Galpão destinado para cargas internacionais'
+                              )
+  # Action
+  visit root_path
+  click_on 'Aeroporto SP'
+  click_on 'Voltar'
+
+  # Assert
+  expect(current_path).to eq root_path
+  end  
 end
