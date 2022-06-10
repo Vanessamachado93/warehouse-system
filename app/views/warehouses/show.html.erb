@@ -1,10 +1,17 @@
-<h1>Galpão <%= @warehouse.code%><h1>
-<div>
-  <strong>Nome:</strong> <%= @warehouse.name%>
-  <strong>Cidade:</strong> <%= @warehouse.city%>
-  <strong>Área:</strong> <%= @warehouse.area%> m²
-  <strong>Endereço:</strong> <%= @warehouse.address%> <strong>cep:</strong><%= @warehouse.cep%> 
-  <strong>Descrição:</strong> <%= @warehouse.description%>
-</div>
-
-<%= link_to 'Voltar', root_path%>
+<h1>Galpão <%= @warehouse.code%></h1>
+<section>
+  <div>
+    <dl>
+      <dt><strong>Nome:</strong></dt>
+      <dd><%= @warehouse.name%></dd>
+      <dt><strong>Cidade:</strong></dt>
+      <dd><%= @warehouse.city%></dd>
+      <dt><strong>Área:</strong></dt>
+      <dd><%= @warehouse.area%> m²</dd>
+      <dt><strong>Endereço:</strong></dt>
+      <dd><%= @warehouse.address%> <strong>cep:</strong><%= @warehouse.cep%></dd> 
+    <dt> <strong>Descrição:</strong> <%= @warehouse.description%></dt>
+    </dl>
+  </div>
+    <%= link_to 'Voltar', root_path%>
+</section>

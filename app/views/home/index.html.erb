@@ -1,13 +1,20 @@
-<h1>Galpões & Estoque</h1>
+<section>
+  <h2>Galpões</h2>
+  <% @warehouses.each do |shed| %>
+    <div>
+      <h3><%= link_to(shed.name, warehouse_path(shed.id)) %></h3>
+      <dl>
+        <dt><strong>Código:</strong></dt> 
+        <dd><%= shed.code %></dd>
+        <dt><strong>Cidade:</strong></dt> 
+        <dd><%= shed.city %></dd>
+        <dt><strong>Área:</strong></dt>
+        <dd><%= shed.area %> m²</dd>
+      <dl>
+    </div>
+  <% end %>
 
-<h2>Galpões</h2>
-<% @warehouses.each do |shed| %>
-  <%= link_to(shed.name, warehouse_path(shed.id)) %>
-  Código: <%= shed.code %>
-  Cidade: <%= shed.city %>
-  <%= shed.area %> m²
-<% end %>
-
-<% if @warehouses.empty? %>
-  <p> Não existem galpões cadastrados</p>
-<% end %>
+  <% if @warehouses.empty? %>
+    <p> Não existem galpões cadastrados</p>
+  <% end %>
+</section>
