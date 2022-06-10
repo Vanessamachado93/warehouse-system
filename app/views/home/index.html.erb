@@ -1,24 +1,15 @@
 <section>
   <h2>Galpões</h2>
-  <% @warehouses.each do |shed| %>
+  <% @warehouses.each do |warehouse| %>
     <div>
-      <h3><%= link_to(shed.name, warehouse_path(shed.id)) %></h3>
+      <h3><%= link_to(warehouse.name, warehouse_path(warehouse.id)) %></h3>
       <dl>
-<<<<<<< HEAD
         <dt><strong>Código:</strong></dt> 
-        <dd><%= shed.code %></dd>
+        <dd><%= warehouse.code %></dd>
         <dt><strong>Cidade:</strong></dt> 
-        <dd><%= shed.city %></dd>
+        <dd><%= warehouse.city %></dd>
         <dt><strong>Área:</strong></dt>
-        <dd><%= shed.area %> m²</dd>
-=======
-        <dt>Código:</dt> 
-        <dd><%= shed.code %></dd>
-        <dt>Cidade:</dt> 
-        <dd><%= shed.city %></dd>
-        <dt>Área:</dt>
-        <dd><%= shed.area %> m²</d>
->>>>>>> 3deece92d47185363fdb26eb35cfa4eab0a8b8b2
+        <dd><%= warehouse.area %> m²</dd>
       <dl>
     </div>
   <% end %>
