@@ -111,4 +111,31 @@ RSpec.describe Warehouse, type: :model do
     end
     end
   end
+  
+  it 'quando o código está repetido' do
+    # Arrange
+
+    fish_warehouse = Warehouse.create(name: 'Rio', 
+                                  code: 'RIO', 
+                                  address: 'Endereço', 
+                                  cep: '99999-999',
+                                  city: 'Rio', 
+                                  area: 1000, 
+                                  description: 'Galpão no Rio',
+                                  ) 
+    second_warehouse = Warehouse.new(name: 'Curitiba', 
+                                    code: 'RIO', 
+                                    address: 'Outro Endereço', 
+                                    cep: '99999-888',
+                                    city: 'Pato Branco', 
+                                    area: 2000, 
+                                    description: 'Galpão em Curitiba',
+                                  ) 
+
+    # Action
+    result = second_warehouse.valid?
+
+    # Assert
+    expect(result).to eq(false)
+  end
 end
