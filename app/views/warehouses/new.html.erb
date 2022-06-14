@@ -1,24 +1,33 @@
 <h1>Novo Galpão</h1>
 
+<% if(@warehouse.errors.any?)%>
+  <p>Verifique os erros abaixo:</p>
+    <ul>
+      <% @warehouse.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+      <% end%>
+    </ul>
+<% end %>
+
 <%= form_with model: @warehouse do |form| %>
   <div>
-    <%= form.label :name,'Nome' %>
+    <%= form.label :name %>
     <%= form.text_field :name %><br>
   </div>
   <div>
-    <%= form.label :description,'Descrição' %>
+    <%= form.label :description %>
     <%= form.text_area :description %><br>
   </div>
   <div>
-    <%= form.label :code,'Código' %>
+    <%= form.label :code %>
     <%= form.text_field :code %>
   </div>
   <div>
-    <%= form.label :city,'Cidade' %>
+    <%= form.label :city %>
     <%= form.text_field :city %>
   </div>
   <div>
-    <%= form.label :address,'Endereço' %>
+    <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
   <div>
@@ -26,10 +35,10 @@
     <%= form.text_field :cep %>
   </div>
   <div>
-    <%= form.label :area,'Área' %>
+    <%= form.label :area %>
     <%= form.number_field :area%>
   </div>
   <div>
-  <%= form.submit 'Enviar'%>
+    <%= form.submit 'Enviar'%>
   </div>
 <% end %>

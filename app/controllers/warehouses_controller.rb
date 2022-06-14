@@ -15,7 +15,7 @@ class WarehousesController < ApplicationController
                                                         :address, 
                                                         :cep, 
                                                         :area
-                                                      )
+                                                        )
     @warehouse = Warehouse.new(warehouse_params)
     if @warehouse.save()
       redirect_to root_path, notice: 'Galpão cadastrado com sucesso'

@@ -113,8 +113,8 @@ RSpec.describe Warehouse, type: :model do
   end
   
   it 'quando o código está repetido' do
+    
     # Arrange
-
     fish_warehouse = Warehouse.create(name: 'Rio', 
                                   code: 'RIO', 
                                   address: 'Endereço', 
