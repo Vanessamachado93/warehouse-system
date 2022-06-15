@@ -1,6 +1,6 @@
 class WarehousesController < ApplicationController
   def show
-    @warehouse = Warehouse.find(params[:id])
+    set_warehouse
   end
 
   def new
@@ -8,14 +8,6 @@ class WarehousesController < ApplicationController
   end
 
   def create
-    warehouse_params = params.require(:warehouse).permit(:name,
-                                                        :code,
-                                                        :city, 
-                                                        :description, 
-                                                        :address, 
-                                                        :cep, 
-                                                        :area
-                                                        )
     @warehouse = Warehouse.new(warehouse_params)
     if @warehouse.save()
       redirect_to root_path, notice: 'Galpão cadastrado com sucesso'
@@ -26,19 +18,11 @@ class WarehousesController < ApplicationController
   end
 
   def edit
-    @warehouse = Warehouse.find(params[:id])
+    set_warehouse
   end
 
   def update
-    warehouse_params = params.require(:warehouse).permit(:name,
-                                                         :code,
-                                                         :city, 
-                                                         :description, 
-                                                         :address, 
-                                                         :cep, 
-                                                         :area
-                                                        )
-    @warehouse = Warehouse.find(params[:id])
+    set_warehouse
     if @warehouse.update(warehouse_params)
     redirect_to warehouse_path(@warehouse.id), notice: 'Galpão atualizado com sucesso'
     else
@@ -46,4 +30,21 @@ class WarehousesController < ApplicationController
       render 'edit'
     end                                                 
   end
+
+  private
+  
+  def set_warehouse
+    @warehouse = Warehouse.find(params[:id])
+  end
+
+  def warehouse_params
+    params.require(:warehouse).permit(:name,
+                                      :code,
+                                      :city, 
+                                      :description, 
+                                      :address, 
+                                      :cep, 
+                                      :area
+                                      )
+  end 
 end 
