@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      supplier: 'Fornecedor'
+    attributes:
+      supplier:
+        corporate_name: 'Ração Social'
+        brand_name: 'Nome Fantasia'
+        registration_number: 'CNPJ'
+        city: 'Cidade'
+        state: 'Estado'
+        full_address: 'Endereço'
+        area: 'Área'
+        cep: 'Cep'
+        telephone: 'Telefone'
+        email: 'e-mail'
