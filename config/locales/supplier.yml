@@ -4,7 +4,7 @@ pt-BR:
       supplier: 'Fornecedor'
     attributes:
       supplier:
-        corporate_name: 'Ração Social'
+        corporate_name: 'Razão Social'
         brand_name: 'Nome Fantasia'
         registration_number: 'CNPJ'
         city: 'Cidade'
