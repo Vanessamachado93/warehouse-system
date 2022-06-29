@@ -66,7 +66,6 @@ describe 'Usuario pode editar dados do fornecedor' do
      # Action
      visit root_path
      click_on 'Fornecedores'
-     save_page
      click_on 'ACME'
      click_on 'Editar Fornecedor'
      fill_in 'Nome', with: ''
