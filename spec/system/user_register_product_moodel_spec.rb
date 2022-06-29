@@ -4,7 +4,6 @@ describe 'Usuario cadastra um modelo de produto' do
    it 'com sucesso' do 
     # Arrange
     supplier = Supplier.create!(brand_name: 'Samsung',
-                                email: 'samsung@example.com', 
                                 corporate_name: 'Samsung Eletronicos LTDA',
                                 registration_number: '45678789000145',
                                 full_address: 'Av das Indústrias, 200',
@@ -12,6 +11,15 @@ describe 'Usuario cadastra um modelo de produto' do
                                 state: 'SP',
                                 email: 'sac@samsung.com',
                                 telephone: '5134567890')
+
+    outher_supplier = Supplier.create!(brand_name: 'LG',
+                                      email: 'sac@lg.com', 
+                                      corporate_name: 'LG do Brasil LTDA',
+                                      registration_number: '90678789000145',
+                                      full_address: 'Av Ferrari, 300',
+                                      city: 'São Paulo',
+                                      state: 'SP',
+                                      telephone: '5134567840')
 
     #Action
     visit root_path
@@ -23,7 +31,7 @@ describe 'Usuario cadastra um modelo de produto' do
     fill_in 'Altura', with: '60'
     fill_in 'Largura' , with: '90'
     fill_in 'Profundidade', with: '10'
-    select 'Samsung', from:'Fornecedor'
+    select supplier.brand_name, from:'Fornecedor'
     click_on 'Salvar'
 
     # Assert
@@ -32,6 +40,6 @@ describe 'Usuario cadastra um modelo de produto' do
     expect(page).to have_content('SKU: TV40-SAMSU-XDF09')
     expect(page).to have_content('Dimensão: 60cm x 90cm x 10cm')
     expect(page).to have_content('Peso: 8000g')
-    expect(page).to have_content('Fornecedor: Samsung')
+    expect(page).to have_content "Fornecedor: #{supplier.brand_name}"
   end
 end
