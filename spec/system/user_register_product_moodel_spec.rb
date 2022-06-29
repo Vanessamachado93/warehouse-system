@@ -42,4 +42,25 @@ describe 'Usuario cadastra um modelo de produto' do
     expect(page).to have_content('Peso: 8000g')
     expect(page).to have_content "Fornecedor: #{supplier.brand_name}"
   end
+    it 'deve preencher todos os campos' do
+      supplier = Supplier.create!(brand_name: 'Samsung',
+                                  corporate_name: 'Samsung Eletronicos LTDA',
+                                  registration_number: '45678789000145',
+                                  full_address: 'Av das Indústrias, 200',
+                                  city: 'São Paulo',
+                                  state: 'SP',
+                                  email: 'sac@samsung.com',
+                                  telephone: '5134567890')
+
+    #Action
+    visit root_path
+    click_on 'Modelos de Produtos'
+    click_on 'Cadastrar novo'
+    fill_in 'Nome', with: ' '
+    fill_in 'SKU', with: ' '
+    click_on 'Salvar'
+    # Assert
+    expect(page).to have_content('Não foi possível cadastrar o modelo de produto')
+
+    end
 end
