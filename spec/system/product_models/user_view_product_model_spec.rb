@@ -30,14 +30,14 @@ describe 'Usuario vê modelos de produtos' do
                        widht: 70,
                        heigth: 45,
                        depth: 10,
-                       sku: 'TV32-SAMSU-XPTO90',
+                       sku: 'TV32-SAMSU-XPTO90111',
                        supplier: supplier)
   ProductModel.create!(name: 'TV 55',
                        weight: 9000,
                        widht: 70,
                        heigth: 45,
                        depth: 10,
-                       sku: 'TV55-SAMSU-XPTO44',
+                       sku: 'TV55-SAMSU-XPTO44111',
                        supplier: supplier)
 
 
