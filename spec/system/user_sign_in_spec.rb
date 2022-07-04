@@ -28,10 +28,9 @@ describe 'Usuario se autentica' do
     click_on 'Acessar'
     fill_in 'e-mail', with: 'email@example.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Acessar'
+    click_on 'Entrar'
     click_on 'Sair'
     # Assert
-    save_page
     expect(page).to have_content 'Logout efetuado com sucesso.'
     expect(page).to have_link 'Acessar'
     expect(page).not_to have_button 'Sair'
