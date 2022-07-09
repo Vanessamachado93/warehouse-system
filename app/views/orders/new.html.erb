@@ -3,7 +3,7 @@
 <%= form_with model:@order do  |form| %>
   <div>
     <%= form.label :warehouse_id, 'Galpão Destino'%>
-    <%= form.collection_select :warehouse_id, @warehouses, :id, :name%>
+    <%= form.collection_select :warehouse_id, @warehouses, :id, :full_description%>
   <div>
   <div>
     <%= form.label :supplier_id, 'Fornecedor'%>
@@ -11,7 +11,7 @@
   <div>
   <div>
    <%= form.label :estimated_delivery_date, 'Data Prevista de Entrega'%>
-   <%= form.text_field :estimated_delivery_date%>
+   <%= form.date_field :estimated_delivery_date%>
   <div>
   <%= form.submit 'Gravar'%>
 <% end %>

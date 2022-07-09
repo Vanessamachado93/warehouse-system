@@ -46,20 +46,19 @@ describe 'Usuario cadastra um pedido' do
                                      city: 'Canoas',
                                      state: 'RS',
                                      email: 'contato@acer.com',
-                                     telephone: '51999999988'
-                                     )
+                                     telephone: '51999999988')
     # Action
     login_as(user)
     visit root_path
     click_on 'Registrar Pedido'
-    select warehouse.name, from: 'Galpão Destino'
+    select 'GRU - Aeroporto SP', from: 'Galpão Destino'
     select supplier.corporate_name, from: 'Fornecedor'
     fill_in 'Data Prevista' , with: '20/07/2022'
     click_on 'Gravar'
     # Assert
     
     expect(page).to have_content 'Pedido cadastrado com sucesso'
-    expect(page).to have_content 'Galpão Destino: Aeroporto SP'
+    expect(page).to have_content 'Galpão Destino: GRU - Aeroporto SP'
     expect(page).to have_content 'Fornecedor: ACER LTDA'
     expect(page).to have_content 'Data Prevista de Entrega: 20/07/2022'
     expect(page).to have_content 'Usuário responśavel: Carlos carlos@email.com'
