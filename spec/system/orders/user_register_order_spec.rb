@@ -51,7 +51,7 @@ describe 'Usuario cadastra um pedido' do
     login_as(user)
     visit root_path
     click_on 'Registrar Pedido'
-    select 'GRU - Aeroporto SP', from: 'Galpão Destino'
+    select warehouse.name, from: 'Galpão Destino'
     select supplier.corporate_name, from: 'Fornecedor'
     fill_in 'Data Prevista' , with: '20/07/2022'
     click_on 'Gravar'
@@ -61,6 +61,6 @@ describe 'Usuario cadastra um pedido' do
     expect(page).to have_content 'Galpão Destino: GRU - Aeroporto SP'
     expect(page).to have_content 'Fornecedor: ACER LTDA'
     expect(page).to have_content 'Data Prevista de Entrega: 20/07/2022'
-    expect(page).to have_content 'Usuário responśavel: Carlos carlos@email.com'
+    expect(page).to have_content 'Usuário responśavel: Carlos - carlos@email.com'
   end
 end
